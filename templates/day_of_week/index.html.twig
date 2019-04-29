@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DayOfWeek index{% endblock %}
+
+{% block body %}
+    <h1>DayOfWeek index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for day_of_week in day_of_weeks %}
+            <tr>
+                <td>{{ day_of_week.id }}</td>
+                <td>{{ day_of_week.name }}</td>
+                <td>
+                    <a href="{{ path('day_of_week_show', {'id': day_of_week.id}) }}">show</a>
+                    <a href="{{ path('day_of_week_edit', {'id': day_of_week.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('day_of_week_new') }}">Create new</a>
+{% endblock %}

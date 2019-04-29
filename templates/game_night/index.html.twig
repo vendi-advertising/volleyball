@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GameNight index{% endblock %}
+
+{% block body %}
+    <h1>GameNight index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>GameNightDate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for game_night in game_nights %}
+            <tr>
+                <td>{{ game_night.id }}</td>
+                <td>{{ game_night.gameNightDate ? game_night.gameNightDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('game_night_show', {'id': game_night.id}) }}">show</a>
+                    <a href="{{ path('game_night_edit', {'id': game_night.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('game_night_new') }}">Create new</a>
+{% endblock %}

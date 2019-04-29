@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit GameWeek{% endblock %}
+
+{% block body %}
+    <h1>Edit GameWeek</h1>
+
+    {{ include('game_week/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('game_week_index') }}">back to list</a>
+
+    {{ include('game_week/_delete_form.html.twig') }}
+{% endblock %}

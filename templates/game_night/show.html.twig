@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GameNight{% endblock %}
+
+{% block body %}
+    <h1>GameNight</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ game_night.id }}</td>
+            </tr>
+            <tr>
+                <th>GameNightDate</th>
+                <td>{{ game_night.gameNightDate ? game_night.gameNightDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('game_night_index') }}">back to list</a>
+
+    <a href="{{ path('game_night_edit', {'id': game_night.id}) }}">edit</a>
+
+    {{ include('game_night/_delete_form.html.twig') }}
+{% endblock %}

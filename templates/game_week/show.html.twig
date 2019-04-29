@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GameWeek{% endblock %}
+
+{% block body %}
+    <h1>GameWeek</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ game_week.id }}</td>
+            </tr>
+            <tr>
+                <th>WeekNumber</th>
+                <td>{{ game_week.weekNumber }}</td>
+            </tr>
+            <tr>
+                <th>WeekStartDate</th>
+                <td>{{ game_week.weekStartDate ? game_week.weekStartDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('game_week_index') }}">back to list</a>
+
+    <a href="{{ path('game_week_edit', {'id': game_week.id}) }}">edit</a>
+
+    {{ include('game_week/_delete_form.html.twig') }}
+{% endblock %}
